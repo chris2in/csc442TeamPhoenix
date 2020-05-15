@@ -6,12 +6,20 @@
 #########################################################################
 
 from sys import stdin
-
+a = True
 def decode(binary, n):
+    global a 
     text = ""
     i = 0
+
     # isolate single bytes
     while (i < len(binary)):
+        if(a):
+            n= 7
+            a = False
+        else:
+            n = 8
+            a=True
         byte = binary[i:i+n]
         # decodes every bit string as an integer
         byte = int(byte, 2)
